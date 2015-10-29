@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AwesomeAnswers</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <a href="<%= root_path %>">Home</a>
+  <!-- <a href="<%= hello_path %>">Hello</a> -->
+  <!-- link_to is called a view helper. link_to is built in with Rails.
+    It generates an anchor HTML tag. This is a preferable to using a href tags.
+    link_to will give you features not available with a href, ie with JS.
+    Ie, can use method: POST, and then when the link is clicked,
+    the method will be HTTP verb POST instead of GET (regular/default when clicking on a link)-->
+  <%= link_to("Hello", hello_path) %>
+  <%= link_to("Greetings #{@name}", greeting_path({name: "Jade"})) %>
+  <!-- OR::
+  <%= link_to("Greeting", greeting_path("Jade")) %>
+-->
+
+  <hr>
+
+<!-- <%= index_path %>
+<hr>
+<%= index_url %>
+<hr> -->
+<%= yield %>
+
+</body>
+</html>
