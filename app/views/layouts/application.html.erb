@@ -16,6 +16,9 @@
     the method will be HTTP verb POST instead of GET (regular/default when clicking on a link)-->
   <%= link_to("Hello", hello_path) %>
   <%= link_to("Greetings #{@name}", greeting_path({name: "Jade"})) %>
+  <%= link_to "Create New Question", new_question_path %>
+  
+
   <!-- OR::
   <%= link_to("Greeting", greeting_path("Jade")) %>
 -->

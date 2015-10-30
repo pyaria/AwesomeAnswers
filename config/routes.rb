@@ -26,6 +26,20 @@ Rails.application.routes.draw do
   root "welcome#index"
   # same as get({"/" => "welcome#index"})
 
+  
+  resources :questions
+  # get "/questions/new" => "questions#new", as: :new_question
+  # post "/questions" => "questions#create", as: :questions
+  # get "/questions/:id" => "questions#show", as: :question
+  # get({"/questions/:id/edit" => "questions#edit", as: :edit_question})
+  # patch({"/questions/:id" => "questions#update"}) # cannot give an as: because it must be matched
+  # get({"/questions" => "questions#index"})
+  # delete({"/questions/:id" => "questions#destroy"})
+
+    # to something that's in the url.
+    # for this particular example, it should be as: :questions, which is already used
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
