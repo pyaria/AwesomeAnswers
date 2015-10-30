@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # no need to run: gem install rails -v 4.2.4, etc
 # because if the gem is not installed for your ruby version
 # bundler will install it for you!
-
+gem "bootstrap-sass"
 gem "cowsay"
 
 # gem 'uglierfier', '>= 1.3.0'

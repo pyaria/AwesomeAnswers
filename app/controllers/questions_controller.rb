@@ -47,7 +47,7 @@ class QuestionsController < ApplicationController
   def update
     @q.update(question_params)
     if @q.save
-      redirect_to(question_path(@q), :notice "Question updated!")
+      redirect_to(question_path(@q), notice: "Question updated!")
     else
       render :edit
     end

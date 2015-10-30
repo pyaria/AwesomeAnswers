@@ -7,33 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <a href="<%= root_path %>">Home</a>
-  <!-- <a href="<%= hello_path %>">Hello</a> -->
-  <!-- link_to is called a view helper. link_to is built in with Rails.
-    It generates an anchor HTML tag. This is a preferable to using a href tags.
-    link_to will give you features not available with a href, ie with JS.
-    Ie, can use method: POST, and then when the link is clicked,
-    the method will be HTTP verb POST instead of GET (regular/default when clicking on a link)-->
-  <%= link_to("Hello", hello_path) %>
-  <%= link_to("Greetings #{@name}", greeting_path({name: "Jade"})) %>
-  <%= link_to "Create New Question", new_question_path %>
-  <hr>
-    <%= flash[:notice] || flash[:alert] %>
-    <#% alert if something went wrong; notice if something went right
-  <hr>
+  <div class="container-fluid">
+    <%= render "/layouts/nav" %>
+    <!-- can also use span instead of i -->
+    <!-- <a href="<%= hello_path %>">Hello</a> -->
+    <!-- link_to is called a view helper. link_to is built in with Rails.
+      It generates an anchor HTML tag. This is a preferable to using a href tags.
+      link_to will give you features not available with a href, ie with JS.
+      Ie, can use method: POST, and then when the link is clicked,
+      the method will be HTTP verb POST instead of GET (regular/default when clicking on a link)-->
+    <!-- We need to add .html_safe to the string in order for Rails not to escape
+          the HTML inside the string. By default, RAils assumes that strings are not safe
+          as they may be input from users which may contain malicious
+        script tags. Rails requires you to be explicit when strings are safe by
+      calling .html_safe method-->
+      <!-- Rails assumes all strings are not safe in case of injection hacking attempts -->
+    <% if flash[:notice]  %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%=  flash[:alert] %>
+      </div>
+    <% end %>
+    <hr>
+      <!-- <#% alert if something went wrong; notice if something went right %> -->
 
-
-  <!-- OR::
-  <%= link_to("Greeting", greeting_path("Jade")) %>
--->
-
-  <hr>
-
-<!-- <%= index_path %>
-<hr>
-<%= index_url %>
-<hr> -->
-<%= yield %>
+    <!-- OR::
+    <%= link_to("Greeting", greeting_path("Jade")) %>
+  -->
+    <!-- <%= index_path %>
+    <hr>
+    <%= index_url %>
+    <hr> -->
+    <%= yield %>
+  </div>
 
 </body>
 </html>
