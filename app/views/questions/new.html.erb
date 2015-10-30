@@ -1,35 +1,11 @@
 <h1>Create New Question</h1>
-<!-- This form below will not work because it does not have authenticity token generated -->
-<!-- <form method="post" action="<%= questions_path %>">
-  <input type="hidden" name="authenticity_token" value ="form_authenticity_token">
-  <input type="submit" value="Create Question">
-</form> -->
+<%#= render("/questions/form") %>
+<%#= This will look for a partial named _form.html.erb
+    within the same folder as teh file we're in (new.html.erb) and
+    render iti n here.
+    Partials can access instance variables but not local variables.
 
-<%# this will automatically generate authenticty_token hidden field for us with the proper value set %>
-<!-- <%= form_tag questions_path do %>
-  <%= submit_tag "Create Question" %>
-<% end %> -->
-
-<!-- form_for looks at the type of object that you give it - in this case, Question,
-and then automatically guesses the url assuming you followed Rails conventions
-so it assumes that you have questions_controller and if you pass it a new
-Question object it will submit it to "questions_path" by convention -->
-<!-- form_for is a helper, like link_to -->
-<%= @errormessage %>
-<%= form_for @q do |f| %>
-  <div>
-    <!-- This generates an input with a name attribute that is question[title]
-          Rails will give us the parameters for this form within the params Hash
-        as a value of "question" key.
-        The params hash will look like:
-        {..question[title], question[body]..}-->
-    <%= f.label :title %>
-    <!-- <%# f.text_field :title, {value={params[:question][:title]}} %> -->
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <%= f.submit %>
-<% end %>
+    To pass local variables:
+    <% a = 3%>
+    <%#= then a: my_var in render form. Can also use @q:q, then just use q in _form%>
+<%= render "form" %>

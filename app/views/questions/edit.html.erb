@@ -1,18 +1,2 @@
 <h1>Edit Question</h1>
-<%= @q.errors.full_messages.join(", ") %>
-<%= form_for @q do |f| %>
-<%# because @q has an id, it is persisted in the database
-# thus, Rails knows that this has already been "posted" and
-# so it automatically adds a hidden input field with
-# name _method and value = PATCH to mimic having the form submit a 'PATCH' action
-# Rails knows to make this form use PATCH because @q is persisted (has an id from database)%>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>

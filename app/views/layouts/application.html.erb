@@ -17,7 +17,11 @@
   <%= link_to("Hello", hello_path) %>
   <%= link_to("Greetings #{@name}", greeting_path({name: "Jade"})) %>
   <%= link_to "Create New Question", new_question_path %>
-  
+  <hr>
+    <%= flash[:notice] || flash[:alert] %>
+    <#% alert if something went wrong; notice if something went right
+  <hr>
+
 
   <!-- OR::
   <%= link_to("Greeting", greeting_path("Jade")) %>

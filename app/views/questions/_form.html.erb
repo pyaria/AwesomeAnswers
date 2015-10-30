@@ -1,0 +1,14 @@
+<%= @errormessage %>
+<%= form_for @q do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<%# now a can be used here, and it is a local variable  %>
