@@ -9,6 +9,7 @@
 <body>
   <div class="container-fluid">
     <%= render "/layouts/nav" %>
+    <%= render "/_flash_messages.html.erb" %>
     <!-- can also use span instead of i -->
     <!-- <a href="<%= hello_path %>">Hello</a> -->
     <!-- link_to is called a view helper. link_to is built in with Rails.
@@ -22,17 +23,6 @@
         script tags. Rails requires you to be explicit when strings are safe by
       calling .html_safe method-->
       <!-- Rails assumes all strings are not safe in case of injection hacking attempts -->
-    <% if flash[:notice]  %>
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%= flash[:notice] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%=  flash[:alert] %>
-      </div>
-    <% end %>
     <hr>
       <!-- <#% alert if something went wrong; notice if something went right %> -->
 
